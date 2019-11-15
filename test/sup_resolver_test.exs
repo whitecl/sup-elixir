@@ -1,7 +1,4 @@
-Code.load_file("sup_resolver.exs", __DIR__)
-
-ExUnit.start()
-ExUnit.configure(exclude: :pending, trace: true)
+Code.load_file("../sup_resolver.exs", __DIR__)
 
 defmodule SupResolverTest do
   use ExUnit.Case
