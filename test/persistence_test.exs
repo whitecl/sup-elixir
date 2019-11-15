@@ -21,4 +21,16 @@ defmodule PersistenceTest do
       end
     end
   end
+
+  describe "load" do
+    test "returns the group sets from file" do
+      groups = [
+        ["David", "John", "Christopher"],
+        ["Robert", "Sonny", "Sebastian"],
+        ["Fitzwilliaam", "Martin", "Lisa"]
+      ]
+
+      assert groups = Persistence.load("test/test_store.json")
+    end
+  end
 end
