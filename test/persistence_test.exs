@@ -12,12 +12,12 @@ defmodule PersistenceTest do
         ["Fitzwilliaam", "Martin", "Lisa"]
       ]
 
-      expected_output = ""
+      expected_output = Poison.encode!(groups)
 
       with_mock File,
         write: fn _path, _output, [:write] -> :ok end do
-        assert :ok = Persistence.persist(groups, "test/output.json")
-        assert_called(File.write(expected_output, "test/output.json"))
+        assert :ok = Persistence.persist(groups, "output.json")
+        assert_called(File.write("output.json", expected_output, [:write]))
       end
     end
   end
