@@ -2,7 +2,7 @@ Code.load_file("../sup_resolver.exs", __DIR__)
 
 defmodule SupResolverTest do
   use ExUnit.Case
-  @names ['Chris', 'Kevin', 'Adam', 'Trever', 'Randy', 'Jason', 'Nate']
+  @names ["Chris", "Kevin", "Adam", "Trever", "Randy", "Jason", "Nate"]
 
   test "takes a list of ids and returns groupings" do
     group_size = 2

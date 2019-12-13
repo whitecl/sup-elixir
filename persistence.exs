@@ -1,14 +1,21 @@
 defmodule Persistence do
-  import Poison
-
   def persist(groups, filepath) do
-    output = Poison.encode!(groups)
+    output =
+      load(filepath)
+      |> List.insert_at(-1, groups)
+      |> Poison.encode!()
+
     File.write(filepath, output, [:write])
     :ok
   end
 
   def load(filepath) do
-    {:ok, raw_json} = File.read(filepath)
-    Poison.decode!(raw_json)
+    case(File.read(filepath)) do
+      {:ok, raw_json} ->
+        Poison.decode!(raw_json)
+
+      {:error, _any} ->
+        []
+    end
   end
 end
