@@ -1,4 +1,4 @@
-Code.load_file("sup_resolver.exs", __DIR__)
+Code.load_file("sup_resolver.ex", __DIR__)
 
 names = System.argv()
 help_triggers = ["", "-h", "--help"]

@@ -1,4 +1,4 @@
-Code.load_file("../persistence.exs", __DIR__)
+Code.load_file("../persistence.ex", __DIR__)
 
 defmodule PersistenceTest do
   use ExUnit.Case
