@@ -20,6 +20,6 @@ defmodule SupResovler do
 
   # Run "mix help deps" to learn about dependencies
   defp deps do
-    [{:mock, "~> 0.3.0", only: :test}, {:poison, "~> 4.0"}]
+    [{:mock, "~> 0.3.0", only: :test}, {:poison, "~> 4.0"}, {:elixir_uuid, "~> 1.2"}]
   end
 end

@@ -1,7 +1,11 @@
 [
-  [
-    ["David", "John", "Christopher"],
-    ["Robert", "Sonny", "Sebastian"],
-    ["Fitzwilliaam", "Martin", "Lisa"]
-  ]
+  {
+    "id": "21f12038-7b3c-11ea-918c-c4b301bc9eb1",
+    "generated": 1586533352,
+    "groupings": [
+      ["David", "John", "Christopher"],
+      ["Robert", "Sonny", "Sebastian"],
+      ["Fitzwilliaam", "Martin", "Lisa"]
+    ]
+  }
 ]

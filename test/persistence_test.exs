@@ -12,15 +12,13 @@ defmodule PersistenceTest do
         ["Fitzwilliaam", "Martin", "Lisa"]
       ]
 
-      expected_output = Poison.encode!([groups])
-
       with_mock(
         File,
         [:passthrough],
         write: fn _path, _output, [:write] -> :ok end
       ) do
         assert :ok = Persistence.persist(groups, "output.json")
-        assert_called(File.write("output.json", expected_output, [:write]))
+        assert_called(File.write("output.json", :_, [:write]))
       end
     end
 
@@ -54,7 +52,11 @@ defmodule PersistenceTest do
         ["Fitzwilliaam", "Martin", "Lisa"]
       ]
 
-      assert groups = Persistence.load("test/test_store.json")
+      loaded = Persistence.load("test/test_store.json")
+      entry = List.first(loaded)
+      assert {:ok, _} = Map.get(entry, "id") |> UUID.info()
+      assert Map.get(entry, "generated") |> is_integer()
+      assert groups = Map.get(entry, "groupings")
     end
 
     test "returns an empty array when the file does not exist" do
